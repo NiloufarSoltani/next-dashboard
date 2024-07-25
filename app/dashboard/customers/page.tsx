@@ -15,9 +15,17 @@ export default async function Customers({
     query?: string;
   };
 }) {
+  // const [customers, setCustomers] = useState<FormattedCustomersTable[] | null>(null)
   const query = searchParams?.query || "";
+  // useEffect(()=>{
+  //   async function fetchdata() {
+  //     const customers = await fetchFilteredCustomers(query)
+  //     setCustomers(customers)
+  //   }
+  //   fetchdata()
+  // },[])
   const customers = await fetchFilteredCustomers(query);
-  
+
   return (
     <div className="w-full">
       <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
